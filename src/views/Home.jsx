@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-  // Simulación de datos de pizzas
-  const pizzas = [
-    { id: 1, name: 'Pizza Margherita', price: 10 },
-    { id: 2, name: 'Pizza Pepperoni', price: 12 },
-    { id: 3, name: 'Pizza Hawaiana', price: 11 }
-  ];
+  const [pizzas, setPizzas] = useState([]);
+
+  const getPizzas = async () => {
+    const response = await fetch("/pizzas.json");
+    const data = await response.json();
+    setPizzas(data);
+  };
+
+  useEffect(() => {
+    getPizzas();
+  }, []);
 
   return (
     <div>
@@ -24,3 +29,4 @@ const Home = () => {
 };
 
 export default Home;
+
