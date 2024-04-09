@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Cart = () => {
-  // Simulación de pizzas en el carrito
+const Carrito= () => {
+
   const cartItems = [
     { id: 1, name: 'Pizza Margherita', price: 10, quantity: 2 },
     { id: 2, name: 'Pizza Pepperoni', price: 12, quantity: 1 }
@@ -24,4 +24,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default Carrito;

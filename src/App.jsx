@@ -1,24 +1,25 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './views/Home';
-import Pizza from './views/Pizza';
-import Carrito from './views/Carrito';
+import React from "react";
+import { BrowserRouter , Routes, Route } from "react-router-dom";
+import Home from "./views/Home";
+import Pizza from "./views/Pizza";
+import Carrito from "./views/Carrito";
+import PizzaProvider  from "./context/PizzaContext";
+import Navbar from "./components/Navbar";
 
-function App() {
+const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/Home" element={<Home />} />
-        <Route path="/pizza/:id" element={<Pizza />} />
-        <Route path="/carrito" element={<Carrito />} />
-        {/* Puedes agregar más rutas aquí si es necesario */}
-      </Routes>
-    </Router>
+    <BrowserRouter>
+      <PizzaProvider>
+      <Navbar />
+          <Routes>
+            <Route path="/Home" element={<Home />} />
+            <Route path="/pizza/:id" element={<Pizza />} />
+            <Route path="/carrito" element={<Carrito />} />
+          </Routes>
+
+      </PizzaProvider>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
-
-
-
-
